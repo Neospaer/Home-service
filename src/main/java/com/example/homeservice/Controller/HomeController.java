@@ -20,7 +20,9 @@ import java.util.List;
 @RequestMapping("/homeService")
 public class HomeController {
     private final HomeService homeService;
-    public HomeController(HomeService homeService){this.homeService = homeService;}
+    public HomeController(HomeService homeService){
+        this.homeService = homeService;
+    }
 
     @PostMapping("/post")
     public ResponseEntity<Home> createHome(@RequestBody @Valid HomeRequest request){
