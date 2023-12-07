@@ -1,7 +1,7 @@
 package com.example.homeservice.Service;
 
 import com.example.homeservice.Home.Home;
-import com.example.homeservice.Repositories.HomeRepositoies;
+import com.example.homeservice.Repositories.HomeRepositories;
 import com.example.homeservice.Request.HomeRequest;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,33 +15,30 @@ import java.util.Optional;
 @AllArgsConstructor
 public class HomeServiceImpl implements HomeService{
 
-    private final HomeRepositoies homeRepositoies;
-
-    @Override
-    public List<Home> getHome() {
-        return homeRepositoies.findAll();
-    }
+    private final HomeRepositories homeRepositories;
 
     @Override
     public Home createHome(HomeRequest homeRequest){
-        return homeRepositoies.save(Home.builder()
+        return homeRepositories.save(Home.builder()
                 .name(homeRequest.getName())
                 .address(homeRequest.getAddress())
                 .build());
     }
     @Override
-    public Home putHome(Home home){
-        return homeRepositoies.save(home);
+    public List<Home> getHome() {
+        return homeRepositories.findAll();
     }
-
     @Override
     public Optional<Home> getHomeId(Integer id){
-        return homeRepositoies.findById(id);
+        return homeRepositories.findById(id);
     }
-
+    @Override
+    public Home putHome(Home home){
+        return homeRepositories.save(home);
+    }
     @Override
     public void deleteHome(Integer id){
-        homeRepositoies.deleteById(id);
+        homeRepositories.deleteById(id);
     }
 
 }

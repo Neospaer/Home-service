@@ -18,19 +18,19 @@ public class RoomController {
     }
 
     @PostMapping("/rooms")
-    public ResponseEntity<Room> createHome(@RequestParam Long homeId, @Valid @RequestBody RoomRequest roomRequest){
+    public ResponseEntity<Room> createHome(@RequestParam Integer homeId, @Valid @RequestBody RoomRequest roomRequest){
         Room room = roomService.createRoom(homeId, roomRequest);
         return ResponseEntity.ok(room);
     }
 
     @PutMapping("/rooms/{id}")
-    public ResponseEntity<Room> putHome(@PathVariable Long id, @Valid @RequestBody RoomRequest roomRequest){
+    public ResponseEntity<Room> putHome(@PathVariable Integer id, @Valid @RequestBody RoomRequest roomRequest){
         Room room = roomService.putRoom(id, roomRequest);
         return ResponseEntity.ok(room);
     }
 
     @DeleteMapping("/rooms/{id}")
-    public void deleteRooms(@PathVariable Long id){
+    public void deleteRooms(@PathVariable Integer id){
         roomService.deleteRoom(id);
     }
 }

@@ -9,10 +9,10 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface HomeRepositoies extends JpaRepository<Home,Integer> {
+public interface HomeRepositories extends JpaRepository<Home,Integer> {
 
-    @EntityGraph(value = "home-entity-graph-with-rooms", type = EntityGraph.EntityGraphType.LOAD)
+    @EntityGraph(value = "EntityGraph", type = EntityGraph.EntityGraphType.LOAD)
     Optional<Home> findById(@NonNull Long aLong);
-    @EntityGraph(value = "home-entity-graph-with-rooms", type = EntityGraph.EntityGraphType.LOAD)
+    @EntityGraph(value = "EntityGraph", type = EntityGraph.EntityGraphType.LOAD)
     <S extends Home> S save(@NonNull S entity);
 }

@@ -19,7 +19,7 @@ public class RoomServiceImpl implements  RoomService{
         this.roomRepositories = roomRepositories;
     }
     @Override
-    public Room createRoom(Long homeId, RoomRequest roomRequest) {
+    public Room createRoom(Integer homeId, RoomRequest roomRequest) {
         Home home = entityManager.getReference(Home.class, homeId);
         return roomRepositories.save(Room.builder()
                 .home(home)
@@ -28,14 +28,14 @@ public class RoomServiceImpl implements  RoomService{
     }
 
     @Override
-    public Room putRoom(Long roomId, RoomRequest roomRequest) {
+    public Room putRoom(Integer roomId, RoomRequest roomRequest) {
         Room newRoom = roomRepositories.findById(roomId).get();
         newRoom.setName(roomRequest.getName());
         return roomRepositories.save(newRoom);
     }
 
     @Override
-    public void deleteRoom(Long id) {
+    public void deleteRoom(Integer id) {
         roomRepositories.deleteById(id);
     }
 }

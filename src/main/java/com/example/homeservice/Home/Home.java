@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedEntityGraph(
-        name = "home-entity-graph-with-rooms",
+        name = "EntityGraph",
         attributeNodes = {@NamedAttributeNode("rooms")}
 )
 @AllArgsConstructor

@@ -18,13 +18,13 @@ public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private Integer id;
 
     @Column(name = "name_room")
     private String name;
 
     @Column(name = "home_id",insertable = false,updatable = false)
-    private long homeId;
+    private Integer homeId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "home_id",referencedColumnName = "id")

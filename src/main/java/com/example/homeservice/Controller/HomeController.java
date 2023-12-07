@@ -32,11 +32,6 @@ public class HomeController {
         Home home = homeService.createHome(request);
         return ResponseEntity.ok(home);
     }
-    @PutMapping("/homes/{id}")
-    public ResponseEntity<Home> putHome(@RequestBody @Valid Home put){
-        Home home = homeService.putHome(put);
-        return ResponseEntity.ok(home);
-    }
     @GetMapping("/homes")
     public ResponseEntity<List<Home>> getHome(){
         return new ResponseEntity<>(homeService.getHome(), HttpStatus.OK);
@@ -44,6 +39,11 @@ public class HomeController {
     @GetMapping("/home/{id}")
     public Optional<Home> getHomeId(@PathVariable Integer id){
         return homeService.getHomeId(id);
+    }
+    @PutMapping("/homes/{id}")
+    public ResponseEntity<Home> putHome(@RequestBody @Valid Home put) {
+        Home home = homeService.putHome(put);
+        return ResponseEntity.ok(home);
     }
     @DeleteMapping("/homes/{id}")
     public void deleteHome(@PathVariable Integer id){
